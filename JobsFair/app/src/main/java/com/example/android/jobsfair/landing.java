@@ -27,7 +27,7 @@ public class landing extends AppCompatActivity {
     Button btnAdminSignUp, btnSignUp, btnSignin;
     private DatabaseReference mDatabase;
     private FirebaseAuth mAuth;
-    
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
