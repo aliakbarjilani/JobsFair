@@ -1,5 +1,6 @@
 package com.example.android.jobsfair;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class landing extends AppCompatActivity {
+public class landing extends Activity {
 
     EditText txtEmail, txtPswd;
     Button btnAdminSignUp, btnSignUp, btnSignin;
@@ -106,7 +107,7 @@ public class landing extends AppCompatActivity {
 
     }
 
-        public void  checkOwnerExist() {
+    public void  checkOwnerExist() {
 
             final String owner_id = mAuth.getCurrentUser().getUid();
             mDatabase.addValueEventListener(new ValueEventListener() {
