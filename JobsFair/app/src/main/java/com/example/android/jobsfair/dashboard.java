@@ -1,5 +1,6 @@
 package com.example.android.jobsfair;
 
+import android.app.Activity;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -16,7 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-public class dashboard extends AppCompatActivity {
+public class dashboard extends Activity {
 
     private TextView txtTitle;
     private Spinner spnCity, spnCategory, spnSubCategory;

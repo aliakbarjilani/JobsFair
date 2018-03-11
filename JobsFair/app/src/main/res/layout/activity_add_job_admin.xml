@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="2dp"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:paddingTop="2dp"
+        tools:context="com.example.android.jobsfair.add_job_admin" >
+
+    <TextView
+        android:id="@+id/txtLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Admin Add Jobs Form:test" />
+
+    <ImageButton
+        android:id="@+id/imgbJob"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_weight="1"
+        android:layout_below="@+id/txtLabel"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onJobImageButtonClicked" />
+
+    <EditText
+        android:id="@+id/txtJobTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Job Title" />
+
+    <EditText
+        android:id="@+id/txtJobDesc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Job Description.." />
+
+    <Spinner
+        android:id="@+id/spnCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="0dp"
+        android:tooltipText="city_prompt"
+        android:entries="@array/city_array"
+        android:prompt="@string/city_prompt" />
+
+    <Spinner
+        android:id="@+id/spnCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="0dp"
+        android:entries="@array/category_array"
+        android:prompt="@string/category_prompt" />
+
+    <Spinner
+        android:id="@+id/spnSubCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="0dp"
+        android:entries="@array/subcategory_array"
+        android:prompt="@string/subcategory_prompt" />
+
+    <CheckBox
+        android:id="@+id/chkInstantApply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Instant Apply.." />
+
+    <EditText
+        android:id="@+id/txtInstantApply1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Instant Apply" />
+
+    <EditText
+        android:id="@+id/txtApplicationURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="URL.." />
+
+    <EditText
+        android:id="@+id/txtApplicationEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:hint="Email.." />
+
+    <Button
+        android:id="@+id/btnAddJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Add Job"
+        android:onClick="onAddJobButtonClicked"/>
+
+</LinearLayout>

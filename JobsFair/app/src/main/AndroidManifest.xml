@@ -25,10 +25,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".signup" />
-        <activity android:name=".addjob" />
         <activity android:name=".dashboard" />
-        <activity android:name=".dashboard_admin"></activity>
+        <activity android:name=".dashboard_admin" />
+        <activity android:name=".single_job" />
+        <activity android:name=".add_job_admin" />
+        <activity android:name=".registration" />
+        <activity android:name=".signup"></activity>
     </application>
 
 </manifest>

@@ -1,5 +1,7 @@
 package com.example.android.jobsfair;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
@@ -13,7 +15,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class dashboard_admin extends AppCompatActivity {
+public class dashboard_admin extends Activity {
 
     private TextView txtTitle;
     private Spinner spnCity, spnCategory, spnSubCategory;
@@ -25,17 +27,68 @@ public class dashboard_admin extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard_admin);
 
         // https://www.mkyong.com/android/android-spinner-drop-down-list-example/
-        //addItemsOnSubCategory();
         addListenerOnButton();
-        //addListenerOnSpinnerItemSelection();
-        spnCategory = (Spinner) findViewById(R.id.spnCategory);
+
         Resources res = getResources();
+        String [] strCities = res.getStringArray(R.array.city_array);
         String [] strCategories = res.getStringArray(R.array.category_array);
         String [] strSubcategories = res.getStringArray(R.array.subcategory_array);
 
         // Using hint on spinner in android.
         //https://android--code.blogspot.ie/2015/08/android-spinner-hint.html
 
+        spnCity = (Spinner) findViewById(R.id.spnCity);
+        final ArrayAdapter<String> adapterCity = new ArrayAdapter<String>(this,R.layout.spinner_item,strCities){
+            @Override
+            public boolean isEnabled(int position)
+            {
+                if(position == 0)
+                {
+                    // Disable the first item from Spinner
+                    // First item will be use for hint
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            @Override
+            public View getDropDownView(int position, View convertView,
+                                        ViewGroup parent) {
+                View view = super.getDropDownView(position, convertView, parent);
+                TextView tv = (TextView) view;
+                if(position == 0){
+                    // Set the hint text color gray
+                    tv.setTextColor(Color.GRAY);
+                }
+                else {
+                    tv.setTextColor(Color.BLACK);
+                }
+                return view;
+            }
+        };
+        adapterCity.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spnCity.setAdapter(adapterCity);
+        spnCity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+                // If user change the default selection
+                // First item is disable and it is used for hint
+                if(position > 0){
+                    // Notify the selected item text
+                    Toast.makeText
+                            (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
+                            .show();
+                }
+            }@Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spnCategory = (Spinner) findViewById(R.id.spnCategory);
         final ArrayAdapter<String> adapterCat = new ArrayAdapter<String>(this,R.layout.spinner_item,strCategories){
             @Override
             public boolean isEnabled(int position)
@@ -85,6 +138,7 @@ public class dashboard_admin extends AppCompatActivity {
 
             }
         });
+
         spnSubCategory = (Spinner) findViewById(R.id.spnSubCategory);
         //ArrayAdapter<CharSequence> adapterSubCat = ArrayAdapter.createFromResource(this, R.array.subcategory_array, android.R.layout.simple_spinner_item);
         final ArrayAdapter<CharSequence> adapterSubCat = new ArrayAdapter<CharSequence>(this,R.layout.spinner_item,strSubcategories){
@@ -142,6 +196,11 @@ public class dashboard_admin extends AppCompatActivity {
 
     }
 
+    public void onAddJobButtonClicked(View view){
+        Intent AddJobdashboardIntent = new Intent(dashboard_admin.this, add_job_admin.class);
+        startActivity(AddJobdashboardIntent);
+    }
+
     //get the selected dropdown list value
     public void addListenerOnButton() {
         spnCategory = (Spinner) findViewById(R.id.spnCategory);
@@ -153,8 +212,8 @@ public class dashboard_admin extends AppCompatActivity {
             public void onClick(View v) {
                 Toast.makeText(dashboard_admin.this,
                         "OnClickListener : " +
-                                "\nSpinner 1 : " + String.valueOf(spnCategory.getSelectedItem()) +
-                                "\nSpinner 2 : " + String.valueOf(spnSubCategory.getSelectedItem()),
+                             "\nSpinner 1 : " + String.valueOf(spnCategory.getSelectedItem()) +
+                             "\nSpinner 2 : " + String.valueOf(spnSubCategory.getSelectedItem()),
                         Toast.LENGTH_SHORT).show();
             }
 

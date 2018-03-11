@@ -41,6 +41,8 @@ public class landing extends Activity {
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("user");
+        txtEmail.setText("new@something.com");
+        txtPswd.setText("password");
         //How to Build Food Order Android App for Restaurant (Android studio)
         //https://www.youtube.com/watch?v=5rQILkqDpWU
         /*Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -66,64 +68,55 @@ public class landing extends Activity {
         if (!TextUtils.isEmpty(owner_email) && !TextUtils.isEmpty(owner_pass)) {
 
             mAuth.signInWithEmailAndPassword(owner_email, owner_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
-                    if (task.isComplete()) {
+
+                    if (task.isSuccessful()) {//.isComplete()) {
                         checkOwnerExist();
                     }
                 }
             });
-
         }
-        /* Commented a hard coded logic to test Firebase Auth.
-        if ((txtEmail.getText().toString().equals("Ali")) && (txtPswd.getText().toString().equals("123"))) { //Authenticate user here.
-            Intent signInIntent = new Intent(landing.this, addjob.class);
-            startActivity(signInIntent);
-        } else {
-            Toast.makeText(landing.this, "Wrong Credentials, Try again.", Toast.LENGTH_LONG).show();
-        }*/
-
-        // Pick Values from EditTexts.
-        // Toast
     }
 
-    public void onAdminSignUpButtonClicked(View view) {
-
+    public void onAdminSignUpButtonClicked(View view)
+    {
+        Toast.makeText(landing.this, "Admin Signup called.", Toast.LENGTH_LONG).show();
         Intent AdmindashboardIntent = new Intent(landing.this, dashboard_admin.class);
         startActivity(AdmindashboardIntent);
-
     }
 
-    public void onSignUpButtonClicked(View view) {
-
-        //if ((txtEmail.getText().toString().equals("Ali")) && (txtPswd.getText().toString().equals("123"))) { //Authenticate user here.
-            //Intent signInIntent = new Intent(landing.this, signup.class);
-            //startActivity(signInIntent);
-        //} else {
-            //Toast.makeText(landing.this, "Wrong Credentials, Try again.", Toast.LENGTH_LONG).show();
-        //}
-        Intent dashboardIntent = new Intent(landing.this, dashboard.class);
-        startActivity(dashboardIntent);
-
+    public void onRegisterButtonClicked(View view) {
+        Toast.makeText(landing.this, "Registration called.", Toast.LENGTH_LONG).show();
+        Intent RegisterIntent = new Intent(landing.this, registration.class);
+        startActivity(RegisterIntent);
     }
 
-    public void  checkOwnerExist() {
+    public void onRegFormButtonClicked(View view) {
 
-            final String owner_id = mAuth.getCurrentUser().getUid();
-            mDatabase.addValueEventListener(new ValueEventListener() {
+        Toast.makeText(landing.this, "Registration called again.", Toast.LENGTH_LONG).show();
+        Intent RegFormIntent = new Intent(landing.this, signup.class);
+        startActivity(RegFormIntent);
+    }
 
-                @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    if (dataSnapshot.hasChild(owner_id)){
-                        startActivity( new Intent( landing.this , dashboard_admin.class));
-                        Toast.makeText(landing.this, "Signin Successful.", Toast.LENGTH_LONG).show();
-                    }
-                }
+    public void checkOwnerExist() {
+        Toast.makeText(landing.this, "Signin Called.", Toast.LENGTH_LONG).show();
+        final String owner_id = mAuth.getCurrentUser().getUid();
+        mDatabase.addValueEventListener(new ValueEventListener() {
 
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
-                }
+            @Override
+           public void onDataChange(DataSnapshot dataSnapshot) {
+               if (dataSnapshot.hasChild(owner_id)){
+                   startActivity( new Intent( landing.this , dashboard_admin.class));
+                   Toast.makeText(landing.this, "Signin Successful.", Toast.LENGTH_LONG).show();
+               }
+           }
 
-            });
-        }
+           @Override
+           public void onCancelled(DatabaseError databaseError) {
+
+           }
+        });
+    }
 }

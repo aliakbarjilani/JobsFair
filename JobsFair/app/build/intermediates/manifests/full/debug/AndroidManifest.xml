@@ -41,10 +41,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.android.jobsfair.signup" />
-        <activity android:name="com.example.android.jobsfair.addjob" />
         <activity android:name="com.example.android.jobsfair.dashboard" />
         <activity android:name="com.example.android.jobsfair.dashboard_admin" />
+        <activity android:name="com.example.android.jobsfair.single_job" />
+        <activity android:name="com.example.android.jobsfair.add_job_admin" />
+        <activity android:name="com.example.android.jobsfair.registration" />
+        <activity android:name="com.example.android.jobsfair.signup" />
 
         <meta-data
             android:name="android.support.VERSION"

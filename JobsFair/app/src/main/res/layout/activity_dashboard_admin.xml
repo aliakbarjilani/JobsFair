@@ -14,8 +14,8 @@
 
     <ImageView
         android:id="@+id/ImgView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_above="@+id/txtTitle"
         android:layout_centerHorizontal="true"
         android:layout_gravity="center"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:paddingTop="32dp"
+        android:paddingTop="5dp"
         android:textSize="16sp"
         tools:text="@string/txtTitle"
         tools:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -37,7 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:paddingBottom="32dp"
+        android:paddingBottom="5dp"
         android:text="@string/txtSubTitle"
         android:textSize="12sp" />
 
@@ -46,7 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:ems="10"
         android:hint="Job title, Skill or Company" />
 
@@ -54,7 +54,7 @@
         android:id="@+id/spnCity"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:tooltipText="city_prompt"
         android:entries="@array/city_array"
         android:prompt="@string/city_prompt" />
@@ -63,7 +63,7 @@
         android:id="@+id/spnCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:entries="@array/category_array"
         android:prompt="@string/category_prompt" />
 
@@ -71,7 +71,7 @@
         android:id="@+id/spnSubCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:entries="@array/subcategory_array"
         android:prompt="@string/subcategory_prompt" />
 
@@ -83,5 +83,14 @@
         android:layout_margin="20dp"
         android:onClick="onSearchButtonClicked"
         android:text="Search"/>
+
+    <Button
+        android:id="@+id/btnAddJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="20dp"
+        android:onClick="onAddJobButtonClicked"
+        android:text="Add Job"/>
 
 </LinearLayout>

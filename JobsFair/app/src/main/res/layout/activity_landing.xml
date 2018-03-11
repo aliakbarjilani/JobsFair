@@ -59,8 +59,8 @@
         android:layout_below="@id/btnSignin"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
-        android:onClick="onSignUpButtonClicked"
-        android:text="Sign up"/>
+        android:onClick="onRegisterButtonClicked"
+        android:text="Register"/>
 
     <Button
         android:id="@+id/btnAdminSignUp"
@@ -70,5 +70,16 @@
         android:layout_marginTop="10dp"
         android:onClick="onAdminSignUpButtonClicked"
         android:text="Admin Sign up" />
+
+    <Button
+        android:id="@+id/btnRegForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnAdminSignUp"
+        android:layout_alignLeft="@+id/editPswd"
+        android:layout_alignStart="@+id/editPswd"
+        android:layout_marginTop="5dp"
+        android:onClick="onRegFormButtonClicked"
+        android:text="RegForm" />
 
 </RelativeLayout>
