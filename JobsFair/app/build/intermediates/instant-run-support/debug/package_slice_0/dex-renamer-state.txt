@@ -1,4 +1,0 @@
-#Fri Mar 09 10:41:47 GMT 2018
-base.0=C\:\\Users\\Kashif Ali Bhatti\\Documents\\GitHub\\JobsFair\\JobsFair\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\1
-path.0=classes.dex
-renamed.0=classes.dex
